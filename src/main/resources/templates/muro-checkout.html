@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+
+<title layout:include="this :: title" th:text="#{checkout}">FIX CHECKOUT TITLE</title>
+
+<th:block layout:fragment="script">
+	<script src="/js/qr.js"></script>
+	<script src="/js/badger-button.js"></script>
+	<script src="/js/check-payment-ajax.js"></script>
+</th:block>
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<h1 th:text="#{muro-checkout}"></h1>
+		<div id="muro-checkout-product-details" class="muro-form">
+			<h2 th:text="#{muro-product-details}"></h2>
+			<div class="form-field"><label th:text="#{code}">FIX CODE TEXT</label><span id="code" class="value" th:text="${checkout.product.code}" ></span></div>
+			<p class="form-field"><label th:text="#{muro-page-amount}">FIX PAGE AMOUNT TEXT</label><span id="amount" class="value" th:text="${checkout.product.amount}" ></span>
+			<p class="form-field"><label th:text="#{total-price}">FIX PRICE TEXT</label><span id="price" class="value" th:text="${checkout.product.price}" ></span>
+		</div>
+		<p><button
+        	class="badger-button"
+        	th:attr="data-to=${checkout.receiver}, data-satoshis=${checkout.product.price * 10^8}"
+			th:text="#{pay-with-badger}"></button>		
+		<div id="muro-waiting-payment">
+			<span id="muro-checkout-pending-msg" th:text="#{muro-checkout-pending}"></span>
+			<span id="muro-waiting-effect"></span>
+			<span id="muro-checkout-pending-amount"></span> BCH
+		</div>
+		<div id="muro-send-bch">
+			<span th:text="#{or}"></span> 
+			<span th:text="#{muro-checkout-send-following-address(${#numbers.formatDecimal(checkout.product.price, 1, 'COMMA', 5, 'POINT')})}"></span> 
+			<p id="muro-payment-receiver" th:text="${checkout.receiver}"></p>
+		</div>
+	</div>
+</body>
+</html>

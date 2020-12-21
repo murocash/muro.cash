@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+
+	<title layout:include="this :: title" th:text="#{product}">FIX PRODUCT FORM TITLE</title>
+
+<body>
+	<div layout:fragment="content">
+		<h1 th:text="#{product}"></h1>
+		<form class="muro-form" th:object="${muroProduct}" th:action="@{/muro-product-form}" method="post">
+			<div class="form-field">
+				<label th:text="#{code}"></label> <input required type="text" th:field="*{code}" />
+			</div>
+			<div class="form-field">
+				<label th:text="#{muro-page-amount}"></label><input required type="number" th:field="*{amount}"
+					max="100" min="2" />
+			</div>
+			<div class="form-field">
+				<label th:text="#{total-price}"></label><input required type="number" th:field="*{price}" max="0.1"
+					min="0.00005" step="0.00005" />
+			</div>
+			<p th:replace="fragments/muro-admin :: form-buttons"></p>
+		</form>
+	</div>
+</body>
+
+</html>

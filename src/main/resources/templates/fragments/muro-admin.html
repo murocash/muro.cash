@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.springframework.org/security/tags">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+	<ul th:fragment="menu" id="muro-admin-menu">
+		<li><a class="main-menu" th:href="@{/muro-shop}" th:text="#{muro-shop}">FIX SHOP TEXT</a>
+	</ul>
+	
+	<p th:fragment="form-buttons" id="form-buttons">
+		<input type="submit" value="Save" th:attr="value=#{save}"/><input type="reset" value="Reset" th:attr="value=#{reset}"/>
+	</p>
+	
+</body>
+</html>

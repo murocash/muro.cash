@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+
+<title layout:include="this :: title" th:text="#{muro-history}">FIX MURO HISTORY TITLE</title>
+
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<h1 th:text="#{muro-history}">FIX MURO HISTORY TITLE</h1>
+		<h2 th:replace="fragments/muro-fragments :: rows-title"></h2>
+		<table>
+			<caption th:text="${title}"></caption>
+			<thead>
+				<tr>
+					<th scope="col" th:text="#{uri}">FIX URI
+					<th scope="col" th:text="#{date-time}">FIX DATE TIME
+					<th scope="col" th:text="#{bought}">FIX BOUGHT
+			<tbody>
+				<th:block th:each="resource : ${muroList} ">
+				<tr>
+					<td ><a th:href="@{${resource.uri}}" th:text="${resource.uri}">FIX URI</a>
+					<td th:text="${{resource.accessedTime}}">
+					<td th:text="${resource.bought ? 'X' : ''}">
+				</th:block>
+			</tbody>
+		</table>
+		<div th:replace="fragments/muro-fragments :: paging(${muroPaging})"></div>
+		
+	</div>
+</body>
+</html>

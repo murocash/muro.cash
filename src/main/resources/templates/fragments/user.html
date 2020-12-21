@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<th:block layout:fragment="script">
+		<script src="/js/cashid.js"></script>
+	</th:block>
+</head>
+
+<body>
+
+	<div id="user" th:fragment="authenticated-user">
+		<ul id="muro-user-menu">
+			<li><a class="main-menu" th:href="@{/muro-history}" th:text="#{muro-history}">FIX HISTORY TEXT</a>
+			<li><a class="main-menu" th:href="@{/muro-payments}" th:text="#{muro-payments}">FIX PAYMENTS TEXT</a>
+		</ul>
+		<div id="user-info">
+			<div id="free-balance">
+				<span class="user-label" th:text="#{remaining-free}"></span>
+				<span class="value"	sec:authentication="freeBalance"></span>
+			</div>
+			<div id="bought-balance">
+				<span class="user-label" th:text="#{remaining-bought}"></span>
+				<span class="value"	sec:authentication="boughtBalance"></span>
+			</div>
+			<button id="cashid-logout" th:text="#{logout}">Logout</button>
+		</div>
+	</div>
+
+	<div th:fragment="anonymous-user">
+		<div id="user-info">
+			<button class="cashid-login" th:text="#{login}">Login</button>
+			<div id="error"></div>
+		</div>
+	</div>
+
+	<input th:fragment="csrf" type="hidden" id="csrf" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+</html>

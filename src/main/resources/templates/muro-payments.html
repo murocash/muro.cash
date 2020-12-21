@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+
+<title layout:include="this :: title" th:text="#{muro-payments}">FIX MURO PAYMENTS TITLE</title>
+
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<h1 th:text="#{muro-payments}">FIX MURO PAYMENTS TITLE</h1>
+		
+		<div id="payments" th:if="${muroPaging.totalRows} gt 0">
+			<h2 th:replace="fragments/muro-fragments :: rows-title"></h2>
+			<table>
+				<caption th:text="${title}"></caption>
+				<thead>
+					<tr>
+						<th scope="col" th:text="#{date-time}">FIX DATE TIME
+						<th scope="col" th:text="#{code}">FIX CODE
+						<th scope="col" th:text="#{amount}">FIX AMOUNT
+						<th scope="col" th:text="#{price}">FIX PRICE
+				<tbody>
+					<th:block th:each="payment : ${muroList} ">
+					<tr>
+						<th scope="row" th:text="${{payment.dateTime}}">
+						<td th:text="${payment.checkout.product.code}">
+						<td th:text="${payment.checkout.product.amount}">
+						<td th:text="${payment.checkout.product.price}">
+					</th:block>
+				</tbody>
+			</table>
+			<div th:replace="fragments/muro-fragments :: paging(${muroPaging})"></div>
+		</div>
+		
+		<div id="payments" th:if="${muroPaging.totalRows} lt 1">
+			<h2 th:text="#{muro-no-payments}"></h2>
+		</div>
+	</div>
+</body>
+</html>

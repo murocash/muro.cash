@@ -1,0 +1,28 @@
+{"groups": [
+    {
+        "name": "muro",
+        "type": "cash.muro.entities.MuroSettings",
+        "sourceType": "cash.muro.entities.MuroSettings"
+    }
+],"properties": [
+    {
+        "name": "muro.daysfree",
+        "type": "java.lang.Integer",
+        "sourceType": "cash.muro.entities.MuroSettings"
+    },
+    {
+        "name": "muro.freepages",
+        "type": "java.lang.Integer",
+        "sourceType": "cash.muro.entities.MuroSettings"
+    },
+    {
+        "name": "muro.rowsperpage",
+        "type": "java.lang.Integer",
+        "sourceType": "cash.muro.entities.MuroSettings"
+    },
+    {
+        "name": "muro.freerows",
+        "type": "java.lang.Integer",
+        "sourceType": "cash.muro.entities.MuroSettings"
+    }
+]}

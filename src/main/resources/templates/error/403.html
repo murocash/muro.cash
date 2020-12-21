@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{error-403(${#authentication.authorities})}">FIX 403 TITLE</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1 th:text="#{error-403(${#authentication.authorities})}">FIX 403 TITLE</h1>
+	</div>
+</body>
+</html>

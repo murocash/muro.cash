@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+
+<head>
+
+	<title layout:include="this :: title" th:text="#{muro-shop}">FIX PRODUCTS TITLE</title>
+
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<h1 th:text="#{muro-shop}">FIX MURO SHOP TITLE</h1>
+		<div th:if="${#authentication.name != 'anonymousUser'}" class="buttons">
+			<a th:href="@{/muro-product-form}" class="button" th:text="#{new-muro-product}">FIX NEW PRODUCT TEXT</a>
+		</div>
+		<div id="muro-shop">
+			<th:block th:each="product : ${muroProductList} ">
+				<div class="muro-shop-product">
+					<a class="product-text" th:href="@{/muro-checkout/{code}/(code=${product.code})}" 
+						th:utext="#{buy-muro-product(${product.amount}, 
+									${#numbers.formatDecimal(product.price, 1, 'COMMA', 5, 'POINT')},
+									${#numbers.formatDecimal((product.price/product.amount), 1, 'COMMA', 6, 'POINT')})}">FIX BUY TEXT</a>
+									
+					<div sec:authorize="isAuthenticated()" class="buttons">
+					<a class="button" th:href="@{/delete-muro-product/{code}/(code=${product.code})}" th:text="#{delete}">FIX DELETE TEXT</a>
+					</div>
+				</div>
+			</th:block>
+		</div>		
+	</div>
+</body>
+</html>
