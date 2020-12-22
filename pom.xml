@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cash.muro</groupId>
 	<artifactId>muro.cash</artifactId>
-	<version>0.1.0-alpha</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<name>muro.cash</name>
 	<description>A PayWall for Websites with large amount of data</description>
 	<url>https://github.com/murocash/muro.cash</url>
@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>cash.muro</groupId>
 			<artifactId>cashid4spring</artifactId>
-			<version>0.1.0-alpha</version>
+			<version>0.1.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
