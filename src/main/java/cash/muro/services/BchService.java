@@ -22,7 +22,7 @@ public interface BchService {
 	 * 
 	 * @param paymentAddress The address where they payment should have been send
 	 * @return the pending amount to complete the payment
-	 * @throws BchException
+	 * @throws BchException when the payment can not be checked
 	 */
 	BigDecimal checkPayment(String paymentAddress) throws BchException;
 	

@@ -41,8 +41,8 @@ public class DeletedEntity<E extends Object> implements Serializable{
 	
 	/**
 	 * Creates a DeletedEntity and allows to establish its state as not deleted (restored)
-	 * @param entity
-	 * @param isDeleted
+	 * @param entity the entity
+	 * @param isDeleted true when it is deleted
 	 */
 	public DeletedEntity(E entity, boolean isDeleted) {
 		this.entity = entity;
