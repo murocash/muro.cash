@@ -14,11 +14,11 @@
 		th:if="${muroPaging.last != muroPaging.first}"></h2>
 
 	<div id="muro-paging" th:fragment="paging(muroPaging)" th:if="${muroPaging.last != muroPaging.first}">
-		<a th:href="@{{path}(path=${muroPaging.firstPath()})}">⇤</a>
-		<a th:href="@{{path}(path=${muroPaging.previousPath()})}">←</a>
+		<a th:href="@{{path}(path=${muroPaging.firstPath()})}">|&lt;</a>
+		<a th:href="@{{path}(path=${muroPaging.previousPath()})}">&lt;</a>
 		<span class="muro-pages" th:text="#{muro-pages(${muroPaging.currentPage}, ${muroPaging.last()})}"></span>
-		<a th:href="@{{path}(path=${muroPaging.nextPath()})}">→</a>
-		<a th:href="@{{path}(path=${muroPaging.lastPath()})}">⇥</a>
+		<a th:href="@{{path}(path=${muroPaging.nextPath()})}">&gt;</a>
+		<a th:href="@{{path}(path=${muroPaging.lastPath()})}">&gt;|</a>
 	</div>
 	
 </body>
