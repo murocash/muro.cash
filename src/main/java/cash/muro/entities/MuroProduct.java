@@ -20,7 +20,7 @@ public class MuroProduct {
 	@Id
 	String code;
 	
-	@Column(nullable = false, unique = true, precision = 25, scale = 6)
+	@Column(nullable = false, unique = true, precision = 25, scale = 8)
 	BigDecimal price;
 	
 	@Column(nullable = false, unique = true)

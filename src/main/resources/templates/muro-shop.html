@@ -22,7 +22,7 @@
 					<a class="product-text" th:href="@{/muro-checkout/{code}/(code=${product.code})}" 
 						th:utext="#{buy-muro-product(${product.amount}, 
 									${#numbers.formatDecimal(product.price, 1, 'COMMA', 5, 'POINT')},
-									${#numbers.formatDecimal((product.price/product.amount), 1, 'COMMA', 6, 'POINT')})}">FIX BUY TEXT</a>
+									${#numbers.formatDecimal((product.price/product.amount), 1, 'COMMA', 7, 'POINT')})}">FIX BUY TEXT</a>
 									
 					<div sec:authorize="isAuthenticated()" class="buttons">
 					<a class="button" th:href="@{/delete-muro-product/{code}/(code=${product.code})}" th:text="#{delete}">FIX DELETE TEXT</a>

@@ -6,9 +6,8 @@ window.addEventListener("load", function() {
 	const pendingAmountSpan = document.getElementById("muro-checkout-pending-amount");
 	const csrfElement = document.getElementById("csrf");
 	
-	document.getElementById("muro-payment-receiver").appendChild(QRimg(address));
-		
-	let n = 0;	
+	document.getElementById("muro-send-bch").appendChild(QRimg(address));
+
 	let muroPaymentCheck = new FormData();
 	muroPaymentCheck.append(csrfElement.getAttribute("name"), csrfElement.getAttribute("value"));
 	
@@ -21,10 +20,10 @@ window.addEventListener("load", function() {
 		xhr.send(muroPaymentCheck);
 		xhr.onload = function() {
 			let amount = xhr.responseText;
-			waitingEffectSpan.innerText =  waitingDotsEffect(n++);
 			pendingAmountSpan.innerText = amount;
 			if (!(amount > 0)) {
 				clearInterval(checkPaymentInterval);
+				waitingEffectSpan.style.display = "none";
 				jsUtilsAlert("muro-payment-received", "muro-payment-received-text");
 				if (amount < -0.00001) { //The difference is bigger than transaction fees
 					getAjaxMessage("muro-payback-sent", function(msg) {
